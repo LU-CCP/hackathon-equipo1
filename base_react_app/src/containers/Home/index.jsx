@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 import React, { useCallback } from 'react';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,6 +21,8 @@ const Home = () => {
   ]);
 
   const { offices } = useSelector(({ offices }) => offices);
+
+  console.log(offices);
 
   useMount(async () => {
     handleGetOffices();
