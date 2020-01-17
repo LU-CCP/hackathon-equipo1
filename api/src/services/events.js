@@ -94,7 +94,7 @@ const updateEvent = async (id, body) => {
          description = @description,
          dates = @dates,
          hours = @hours,
-         id_office = @id_office
+         id_offices = @id_office
          WHERE id = @id`
       );
     sql.close();
