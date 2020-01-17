@@ -4,7 +4,8 @@
   "description": "Api Rest for Hackathon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon src/index"
   },
   "author": "Equipo 1",
   "license": "ISC",
@@ -18,5 +19,9 @@
     "restify-cors-middleware": "^1.1.1",
     "restify-jwt-community": "^1.1.2",
     "restify-router": "^0.5.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
   }
 }
