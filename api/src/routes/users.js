@@ -6,6 +6,7 @@ const jsonWebToken = require("jsonwebtoken");
 const { config } = require("../config/database");
 
 router.post("/token", async (req, res) => {
+  //console.log("Token post");
   const { user, pass } = req.body;
   try {
     let conn = await sql.connect(config);
@@ -13,7 +14,9 @@ router.post("/token", async (req, res) => {
       .request()
       .input("user", user)
       .input("pass", pass)
-      .query(`SELECT * FROM user WHERE user_name = @user AND password = @pass`);
+      .query(
+        `SELECT * FROM users WHERE user_name = @user AND password = @pass`
+      );
     sql.close();
     if (+result.rowsAffected === 0) {
       res.json(404, { message: "Login failed" });

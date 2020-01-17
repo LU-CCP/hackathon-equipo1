@@ -41,7 +41,7 @@ const getEvent = async id => {
 
 const setEvent = async body => {
   try {
-    const { descripcion, dates, hours, id_office } = body;
+    const { description, dates, hours, id_office } = body;
 
     let conn = await sql.connect(config);
     let result = await conn
@@ -51,8 +51,8 @@ const setEvent = async body => {
       .input("hours", hours)
       .input("id_office", id_office)
       .query(
-        `INSERT INTO event 
-         VALUES(@descripcion,@dates,@hours,@id_office)`
+        `INSERT INTO events 
+         VALUES(@description,@dates,@hours,@id_office)`
       );
     sql.close();
     return { message: "Event saved successfully" };
@@ -63,7 +63,7 @@ const setEvent = async body => {
 
 const updateEvent = async (id, body) => {
   try {
-    const { descripcion, fecha, hora, id_sucursal } = body;
+    const { description, dates, hours, id_office } = body;
 
     let conn = await sql.connect(config);
     let result = await conn
@@ -74,7 +74,7 @@ const updateEvent = async (id, body) => {
       .input("id_office", id_office)
       .input("id", id)
       .query(
-        `UPDATE event SET
+        `UPDATE events SET
          description = @description,
          dates = @dates,
          hours = @hours,
@@ -94,7 +94,7 @@ const deleteEvent = async id => {
     let result = await conn
       .request()
       .input("id", id)
-      .query(`DELETE FROM event WHERE id = @id`);
+      .query(`DELETE FROM events WHERE id = @id`);
     sql.close();
     return { message: "Event deleted successfully" };
   } catch (e) {

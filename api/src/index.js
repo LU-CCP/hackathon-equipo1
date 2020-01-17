@@ -30,7 +30,7 @@ server.use(cors.actual);
 server.use(bodyParser.json());
 server.use(
   restifyJwtCommunity({ secret: "my-secret-key" }).unless({
-    path: ["/usuario/token"]
+    path: ["/user/token"]
   })
 );
 
