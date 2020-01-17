@@ -6,7 +6,7 @@ import { URLS } from './config';
 
 const createApi = () => {
   const { setBaseURL, get } = buildApi();
-  const urlBase = 'http://localhost:3010/offices/';
+  const urlBase = 'http://localhost:3010/offices';
 
   setBaseURL(urlBase);
   const offices = {

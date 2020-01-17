@@ -22,6 +22,8 @@ const Home = () => {
 
   const { offices } = useSelector(({ offices }) => offices);
 
+  console.log(offices);
+
   useMount(async () => {
     handleGetOffices();
   });
