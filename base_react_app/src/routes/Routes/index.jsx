@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Example } from '../../containers';
-import { ROOT } from '../paths';
+import { Login, Home, Settings } from '../../containers';
+import { LOGIN, HOME, SETTINGS } from '../paths';
 
 const Routes = () => (
   <Switch>
-    <Route exact path={ROOT} component={Example} />
+    <Route exact path={LOGIN} component={Login} />
+    <Route exact path={HOME} component={Home} />
+    <Route exact path={SETTINGS} component={Settings} />
   </Switch>
 );
 
