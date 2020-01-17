@@ -34,7 +34,7 @@ const Home = () => {
         <Grid container>
           <Grid item xs={8} style={style.backgroundClock} spacing={2}>
             <Header id={2} />
-            <Clock offSet={0} title='Título cita' hours='5:39:00' />
+            <Clock offSet={0} title='Título cita' hours='6:44' />
           </Grid>
 
           <Grid item xs={4} style={style.backgroundCalendary}>

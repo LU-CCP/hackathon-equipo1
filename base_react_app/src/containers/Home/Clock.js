@@ -55,7 +55,7 @@ const Clock = props => {
   const classes = useStyles();
   const { offSet, title, hours } = props;
   const [time, setTime] = useState(new Date());
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -67,13 +67,21 @@ const Clock = props => {
 
   useEffect(() => {
     setInterval(() => setTime(new Date()), 1000);
-    const hora = `${time.getHours() +
-      offSet}:${time.getMinutes()}:${time.getSeconds()}`;
 
-    if (hora === '5:18:0') {
-      setOpen(true);
-    }
-  }, [offSet, setTime, time]);
+    setInterval(() => {
+      const date = new Date();
+
+      date.setHours(date.getHours() + offSet);
+
+      const hora = `${date.getHours()}:${date.getMinutes()}`;
+      const horaMinutos = hora.split(':')[1];
+      const hoursMinutos = hours.split(':')[1];
+
+      if (hoursMinutos - horaMinutos === 3) {
+        setOpen(true);
+      }
+    }, 1000 * 60 * 2);
+  }, [hours, offSet, setTime, time]);
 
   return (
     <div>
@@ -93,7 +101,9 @@ const Clock = props => {
         <img src={alarm} alt='logo' className='App-logo' />
 
         <DialogContent>
-          <span className={classes.alarmBody}>Faltan XX:XX para la cita</span>
+          <span className={classes.alarmBody}>
+            {'Faltan 3 minutos para la cita'}
+          </span>
         </DialogContent>
         <DialogActions>
           <Button
