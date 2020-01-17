@@ -1,3 +1,6 @@
+import background from '../../resources/background.png';
+import calendary from '../../resources/calendary.png';
+
 const styles = {
   container: {
     backgroundColor: '#282C34',
@@ -12,6 +15,21 @@ const styles = {
     animation: 'Example-logo-spin infinite 20s linear',
     height: '40vmin',
     pointerEvents: 'none'
+  },
+  backgroundClock: {
+    backgroundImage: `url(${background})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '100vh'
+  },
+  backgroundCalendary: {
+    backgroundImage: `url(${calendary})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '100vh'
+  },
+  divider: {
+    width: '5'
   }
 };
 

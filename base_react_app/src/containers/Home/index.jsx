@@ -1,14 +1,16 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-import React, { useCallback } from 'react';
+import React, { useCallback, View } from 'react';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useSelector, useDispatch } from 'react-redux';
+import { Divider } from '@material-ui/core';
 
 import { useActions } from '../../hooks';
 import { fetchOffices } from '../../actions/offices';
 import useMount from '../../hooks/useMount';
 
+import style from './styles';
 import Header from './Header';
 import Clock from './Clock';
 import Cards from './Cards';
@@ -30,11 +32,12 @@ const Home = () => {
     <div>
       <CssBaseline>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={8} style={style.backgroundClock} spacing={2}>
             <Header id={2} />
-            <Clock />
+            <Clock offSet={0} />
           </Grid>
-          <Grid item xs={4}>
+
+          <Grid item xs={4} style={style.backgroundCalendary}>
             <Cards time='12:00' title='Título1' body='Este es un body' />
             <p />
             <Cards time='13:00' title='Título2' body='Este no es un body' />
