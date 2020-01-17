@@ -71,14 +71,35 @@ const Settings = () => {
   };
 
   const handleChangeId = key => ({ target: { value } }) => {
+    console.log({ [key]: value });
     setId_offices({ [key]: value });
   };
 
   const onSubmit = () => {
-    const { _description } = description;
-    const { _dates } = dates;
-    const { _hours } = hours;
-    const { _id_offices } = id_offices;
+    let { _description } = description;
+    let { _dates } = dates;
+    let { _hours } = hours;
+    let { _id_offices } = id_offices;
+
+    if (!_description) {
+      setDescription(eventEdit.data.description);
+      _description = description;
+    }
+
+    if (!_dates) {
+      setDates(eventEdit.data.dates);
+      _dates = dates;
+    }
+
+    if (!_hours) {
+      setHours(eventEdit.data.hours);
+      _hours = hours;
+    }
+
+    if (!_id_offices) {
+      setId_offices(eventEdit.data.id_offices);
+      _id_offices = id_offices;
+    }
 
     const items = {
       description: _description,
