@@ -9,7 +9,8 @@ const {
   getEvent,
   setEvent,
   updateEvent,
-  deleteEvent
+  deleteEvent,
+  getForOffice
 } = require("../services/events");
 
 router.get("/all", async (req, res) => {
@@ -18,6 +19,11 @@ router.get("/all", async (req, res) => {
 
 router.get("/allToday", async (req, res) => {
   res.send(200, await getAllTodayEvents());
+});
+
+router.get("/office/:id", async (req, res) => {
+  const { id } = req.params;
+  res.send(200, await getForOffice(id));
 });
 
 router.get("/:id", async (req, res) => {

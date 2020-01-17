@@ -31,7 +31,21 @@ const getEvent = async id => {
     let result = await conn
       .request()
       .input("id", id)
-      .query(`SELECT * FROM event WHERE id = @id`);
+      .query(`SELECT * FROM events WHERE id = @id`);
+    sql.close();
+    return result.recordset;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const getForOffice = async id => {
+  try {
+    let conn = await sql.connect(config);
+    let result = await conn
+      .request()
+      .input("id", id)
+      .query(`SELECT * FROM events WHERE id_office = @id`);
     sql.close();
     return result.recordset;
   } catch (e) {
@@ -108,5 +122,6 @@ module.exports = {
   getEvent,
   setEvent,
   updateEvent,
-  deleteEvent
+  deleteEvent,
+  getForOffice
 };

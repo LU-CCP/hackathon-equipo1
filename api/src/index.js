@@ -9,6 +9,7 @@ const { API_PORT } = process.env;
 
 const usersRoutes = require("./routes/users");
 const eventsRoutes = require("./routes/events");
+const officesRoutes = require("./routes/offices");
 
 // Settings
 const server = restify.createServer();
@@ -51,6 +52,7 @@ server.use((req, res, next) => {
 //Routes
 router.add("/user", usersRoutes);
 router.add("/event", eventsRoutes);
+router.add("/offices", officesRoutes);
 router.applyRoutes(server);
 
 server.listen(API_PORT, function() {
