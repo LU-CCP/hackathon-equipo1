@@ -45,7 +45,7 @@ const getForOffice = async id => {
     let result = await conn
       .request()
       .input("id", id)
-      .query(`SELECT * FROM events WHERE id_office = @id`);
+      .query(`SELECT * FROM events WHERE id_offices = @id`);
     sql.close();
     return result.recordset;
   } catch (e) {
