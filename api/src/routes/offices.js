@@ -5,7 +5,7 @@ const sqlConfig = require("../config/database");
 
 const { getAllOffices } = require("../services/offices");
 
-router.get("/all", async (req, res) => {
+router.get("", async (req, res) => {
   res.send(200, await getAllOffices());
 });
 
