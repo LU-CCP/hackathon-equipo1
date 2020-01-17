@@ -94,8 +94,7 @@ const Clock = props => {
   return (
     <div>
       <Typography className={classes.clock} variant='h1' align='center'>
-        0{(time.getHours() + offSet).slice(-2)}:
-        {`0${time.getMinutes()}`.slice(-2)}:{`0${time.getSeconds()}`.slice(-2)}
+        {time.getHours() + offSet}:{time.getMinutes()}:{time.getSeconds()}
       </Typography>
 
       <Dialog
