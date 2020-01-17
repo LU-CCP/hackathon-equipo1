@@ -17,8 +17,6 @@ const {
 } = eventsApi;
 
 function* fetchEvents() {
-  console.log('Fetch event');
-
   try {
     const { ok, data } = yield call(getEvents);
 
@@ -57,6 +55,9 @@ function* addEvent({ data }) {
 function* editEvent({ data, id }) {
   try {
     const { ok, data: dataResult } = yield call(putEvent, data, id);
+
+    console.log(data);
+    console.log(id);
 
     if (!ok) {
       yield call(alert, ERROR_MSG);

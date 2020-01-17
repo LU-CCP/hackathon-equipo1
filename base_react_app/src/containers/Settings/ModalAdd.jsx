@@ -32,7 +32,7 @@ const ModalAdd = ({ open, handleClose }) => {
   const [id_offices, setId_offices] = useState(0);
 
   const { onAddEvent } = useActions({
-    onAddSerie: addEvent
+    onAddEvent: addEvent
   });
 
   const handleChangeDescription = key => ({ target: { value } }) => {
@@ -96,7 +96,7 @@ const ModalAdd = ({ open, handleClose }) => {
               fullWidth
               name='_dates'
               label='Fecha'
-              onChange={handleChangeDescription('_dates')}
+              onChange={handleChangeDates('_dates')}
               ref={register}
             />
 
