@@ -77,7 +77,15 @@ const Clock = props => {
       const horaMinutos = hora.split(':')[1];
       const hoursMinutos = hours.split(':')[1];
 
+      if (hoursMinutos - horaMinutos === 1) {
+        setOpen(true);
+      }
+
       if (hoursMinutos - horaMinutos === 3) {
+        setOpen(true);
+      }
+
+      if (hoursMinutos - horaMinutos === 5) {
         setOpen(true);
       }
     }, 1000 * 60 * 2);
@@ -86,7 +94,8 @@ const Clock = props => {
   return (
     <div>
       <Typography className={classes.clock} variant='h1' align='center'>
-        {time.getHours() + offSet}:{time.getMinutes()}:{time.getSeconds()}
+        0{(time.getHours() + offSet).slice(-2)}:
+        {`0${time.getMinutes()}`.slice(-2)}:{`0${time.getSeconds()}`.slice(-2)}
       </Typography>
 
       <Dialog
