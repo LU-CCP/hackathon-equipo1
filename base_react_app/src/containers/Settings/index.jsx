@@ -15,7 +15,9 @@ import {
   Dialog,
   DialogContent,
   DialogContentText,
-  DialogTitle
+  DialogTitle,
+  CssBaseline,
+  TextField
 } from '@material-ui/core';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
@@ -51,6 +53,47 @@ const Settings = () => {
     dispatch
   ]);
 
+  const [description, setDescription] = useState('');
+  const [dates, setDates] = useState('');
+  const [hours, setHours] = useState('');
+  const [id_offices, setId_offices] = useState(0);
+
+  const handleChangeDescription = key => ({ target: { value } }) => {
+    setDescription({ [key]: value });
+  };
+
+  const handleChangeDates = key => ({ target: { value } }) => {
+    setDates({ [key]: value });
+  };
+
+  const handleChangeHours = key => ({ target: { value } }) => {
+    setHours({ [key]: value });
+  };
+
+  const handleChangeId = key => ({ target: { value } }) => {
+    setId_offices({ [key]: value });
+  };
+
+  const onSubmit = () => {
+    const { _description } = description;
+    const { _dates } = dates;
+    const { _hours } = hours;
+    const { _id_offices } = id_offices;
+
+    const items = {
+      description: _description,
+      dates: _dates,
+      hours: _hours,
+      id_offices: _id_offices
+    };
+
+    console.log('Estoy en onsubmit');
+    console.log(items);
+
+    onEditEvent(items);
+    handleClose();
+  };
+
   useMount(async () => {
     handleGetEvent();
   });
@@ -71,18 +114,6 @@ const Settings = () => {
     setOpen(true);
   };
 
-  const onSubmit = ({ _description, _dates, _hours, _id_offices, id }) => {
-    const items = {
-      description: _description,
-      dates: _dates,
-      hours: _hours,
-      id_offices: _id_offices
-    };
-
-    onEditEvent(items, id);
-    handleClose();
-  };
-
   const StyledTableCell = withStyles(() => ({
     head: {
       fontSize: 20
@@ -94,7 +125,6 @@ const Settings = () => {
       open={!!eventEdit.data}
       onClose={handleClose}
       aria-labelledby='alert-dialog-title'
-      aria-describedby='alert-dialog-description'
       className={classes.app}
     >
       <DialogTitle id='alert-dialog-title'>Actualizar evento</DialogTitle>
@@ -112,59 +142,61 @@ const Settings = () => {
                 value={eventEdit.data.id}
                 ref={register}
               />
-              <label className={classes.labelForm}>Descripción:</label>
-              <input
-                className={classes.appFormItem}
-                name='description'
-                label='Description'
-                type='input'
-                ref={register}
-                defaultValue={eventEdit.data.description}
-              />
             </Grid>
-            <Grid item>
-              <label className={classes.labelForm}>Fecha:</label>
-              <input
-                className={classes.appFormItem}
-                name='dates'
-                label='Dates'
-                type='input'
-                ref={register}
-                defaultValue={eventEdit.data.release}
-              />
-            </Grid>
-            <Grid item>
-              <label className={classes.labelForm}>Hora:</label>
-              <input
-                className={classes.appFormItem}
-                name='hours'
-                label='Hora'
-                type='input'
-                ref={register}
-                defaultValue={eventEdit.data.hours}
-              />
-            </Grid>
-            <Grid item>
-              <label className={classes.labelForm}>Id oficina:</label>
-              <input
-                className={classes.appFormItem}
-                name='id_offices'
-                label='Id Oficina'
-                type='input'
-                ref={register}
-                defaultValue={eventEdit.data.id_offices}
-              />
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.buttonForm}
-                type='submit'
-                color='secondary'
-                variant='contained'
-              >
-                {'Actualizar'}
-              </Button>
-            </Grid>
+            <TextField
+              variant='outlined'
+              margin='normal'
+              required
+              fullWidth
+              label='Descripción'
+              name='_description'
+              autoFocus
+              onChange={handleChangeDescription('_description')}
+              defaultValue={eventEdit.data.description}
+              ref={register}
+            />
+            <TextField
+              variant='outlined'
+              margin='normal'
+              required
+              fullWidth
+              name='_dates'
+              label='Fecha'
+              onChange={handleChangeDates('_dates')}
+              defaultValue={eventEdit.data.dates}
+              ref={register}
+            />
+
+            <TextField
+              variant='outlined'
+              margin='normal'
+              required
+              fullWidth
+              name='_hours'
+              label='Hora'
+              onChange={handleChangeHours('_hours')}
+              defaultValue={eventEdit.data.hours}
+              ref={register}
+            />
+            <TextField
+              variant='outlined'
+              margin='normal'
+              required
+              fullWidth
+              name='_id_offices'
+              label='id de oficina'
+              onChange={handleChangeId('_id_offices')}
+              defaultValue={eventEdit.data.id_offices}
+              ref={register}
+            />
+            <Button
+              className={classes.buttonForm}
+              type='submit'
+              color='secondary'
+              variant='contained'
+            >
+              {'Actualizar'}
+            </Button>
           </form>
         </DialogContentText>
       </DialogContent>

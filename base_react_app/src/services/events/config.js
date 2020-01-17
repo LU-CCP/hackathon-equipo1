@@ -1,5 +1,5 @@
 const METHODS = {
-  series: {
+  events: {
     getEvents: 'GET',
     postEvent: 'POST',
     putEvent: 'PUT',
@@ -8,7 +8,7 @@ const METHODS = {
 };
 
 const URLS = {
-  series: {
+  events: {
     getEvents: 'all',
     postEvent: 'add',
     putEvent: 'update',
