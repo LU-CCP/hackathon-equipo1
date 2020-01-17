@@ -1,3 +1,5 @@
-import Example from './Example';
+import Login from './Login';
+import Home from './Home';
+import Settings from './Settings';
 
-export { Example };
+export { Login, Home, Settings };

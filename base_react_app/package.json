@@ -26,7 +26,9 @@
     "typescript": "3.6.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.8.3",
     "apisauce": "1.1.1",
+    "browser-beep": "^1.0.2",
     "connected-react-router": "6.5.2",
     "core-js": "3.2.1",
     "history": "4.10.1",

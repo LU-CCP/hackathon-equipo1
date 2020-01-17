@@ -8,10 +8,9 @@ import { makeGetData, makeGetStatus } from '../../selectors/example';
 import { useActions } from '../../hooks';
 import { Example as ExampleComponent } from '../../components';
 
-import './css.css';
 import styles from './styles';
 
-const Example = () => {
+const Settings = () => {
   const {
     data: { text },
     status: { fetching }
@@ -33,4 +32,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Settings;
