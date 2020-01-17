@@ -38,7 +38,7 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={4} style={style.backgroundCalendary}>
-            <Cards time='12:00' title='Título1' body='Este es un body' />
+            <Cards time='12:01' title='Título1' body='Este es un body' />
             <p />
             <Cards time='13:00' title='Título2' body='Este no es un body' />
             <p />

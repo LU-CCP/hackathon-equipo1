@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -14,8 +14,11 @@ const useStyles = makeStyles({
   }
 });
 
-const Cards = ({ time, title, body }) => {
+const Cards = props => {
   const classes = useStyles();
+  const [time, setTime] = useState(props.time);
+  const [title, setTitle] = useState(props.title);
+  const [body, setBody] = useState(props.body);
 
   return (
     <Card className={classes.card} variant='outlined'>
