@@ -71,34 +71,29 @@ const Settings = () => {
   };
 
   const handleChangeId = key => ({ target: { value } }) => {
-    console.log({ [key]: value });
     setId_offices({ [key]: value });
   };
 
-  const onSubmit = () => {
+  const onSubmit = ({ id }) => {
     let { _description } = description;
     let { _dates } = dates;
     let { _hours } = hours;
     let { _id_offices } = id_offices;
 
     if (!_description) {
-      setDescription(eventEdit.data.description);
-      _description = description;
+      _description = eventEdit.data.description;
     }
 
     if (!_dates) {
-      setDates(eventEdit.data.dates);
-      _dates = dates;
+      _dates = eventEdit.data.dates;
     }
 
     if (!_hours) {
-      setHours(eventEdit.data.hours);
-      _hours = hours;
+      _hours = eventEdit.data.hours;
     }
 
     if (!_id_offices) {
-      setId_offices(eventEdit.data.id_offices);
-      _id_offices = id_offices;
+      _id_offices = eventEdit.data.id_offices;
     }
 
     const items = {
@@ -108,10 +103,7 @@ const Settings = () => {
       id_offices: _id_offices
     };
 
-    console.log('Estoy en onsubmit');
-    console.log(items);
-
-    onEditEvent(items);
+    onEditEvent(items, id);
     handleClose();
   };
 

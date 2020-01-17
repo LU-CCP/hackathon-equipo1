@@ -53,11 +53,11 @@ function* addEvent({ data }) {
 }
 
 function* editEvent({ data, id }) {
-  console.log('Estoy en edit saga');
-  console.log(data);
-
   try {
     const { ok, data: dataResult } = yield call(putEvent, data, id);
+
+    console.log(data);
+    console.log(id);
 
     if (!ok) {
       yield call(alert, ERROR_MSG);
