@@ -6,7 +6,7 @@ const METHODS = {
 
 const URLS = {
   offices: {
-    getOffices: 'all'
+    getOffices: ''
   }
 };
 
