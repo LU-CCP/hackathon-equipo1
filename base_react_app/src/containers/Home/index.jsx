@@ -24,8 +24,6 @@ const Home = () => {
 
   const { offices } = useSelector(({ offices }) => offices);
 
-  console.log(offices);
-
   useMount(async () => {
     handleGetOffices();
   });
@@ -36,7 +34,7 @@ const Home = () => {
         <Grid container>
           <Grid item xs={8} style={style.backgroundClock} spacing={2}>
             <Header id={2} />
-            <Clock offSet={0} />
+            <Clock offSet={0} title='Título cita' hours='5:39:00' />
           </Grid>
 
           <Grid item xs={4} style={style.backgroundCalendary}>

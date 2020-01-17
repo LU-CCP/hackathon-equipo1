@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
-    margin: '5px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    borderRadius: 10
+    marginTop: '5px',
+    marginRight: '5px',
+    padding: 0
   }
 });
 
