@@ -12,7 +12,7 @@ const Home = () => (
       <Grid container>
         <Grid item xs={8}>
           <Header id={2} />
-          <Clock />
+          <Clock offSet={7} />
         </Grid>
         <Grid item xs={4}>
           <Cards time='12:00' title='Título1' body='Este es un body' />
